@@ -1,0 +1,26 @@
+@import "mixins.scss";
+
+body {
+	width: 100%;
+	background: #fff;
+	color: black;
+		@include search_field;
+		@include video-item;
+}
+
+.video-detail {
+	margin-top: 50px;
+}
+
+.list-group{
+	margin-top: 50px;
+}
+
+.list-group-item {
+	cursor: pointer;
+	margin-bottom: 15px;
+}
+
+.list-group-item:hover {
+	background-color: #eee;
+}
