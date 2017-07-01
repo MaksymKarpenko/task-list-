@@ -1,5 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTask } from '../actions';
+
 class App extends Component {
+
+	constructor(props) {
+		super(props);
+
+		 this.state = {
+		 	text: ''
+		 }
+	}
+
+	addTask() {
+		
+		this.props.addTask(this.state.text);
+	}
+
 	render() {
 		return  (
 			<div className="App">
@@ -11,11 +28,13 @@ class App extends Component {
 						<input 
 							className="form-control"
 							placeholder="I have to..."
+							onChange = {event => this.setState({text: event.target.value})}
 						/>
 					</div>
 					<button
 						type="button"
 						className="btn btn-success"
+						onClick={() => this.addTask()}
 					> 
 						Add Task
 					</button>
@@ -25,4 +44,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default connect(null, {addTask})(App);
