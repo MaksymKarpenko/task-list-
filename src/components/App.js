@@ -18,6 +18,7 @@ class App extends Component {
 	}
 
 	render() {
+		console.log('this.props', this.props);
 		return  (
 			<div className="App">
 				<div className="title">
@@ -44,4 +45,11 @@ class App extends Component {
 	}
 }
 
-export default connect(null, {addTask})(App);
+function mapStateToProps(state) {
+
+		return {
+			taskList: state
+		}
+}
+
+export default connect(mapStateToProps, {addTask})(App);
