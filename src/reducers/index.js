@@ -1,4 +1,4 @@
-import { ADD_TASK } from '../constants';
+import { ADD_REMINDER } from '../constants';
 
 const reminder = (action) => {
 	return {
@@ -12,7 +12,7 @@ const reminders = (state=[], action) => {
 	switch(action.type)	{
 		case ADD_REMINDER:
 			reminders = [...state, reminder(action)];
-			console.log('task list as state', taskList);
+			console.log('task list as state', reminders);
 			return reminders;
 		default: 
 			return state;
